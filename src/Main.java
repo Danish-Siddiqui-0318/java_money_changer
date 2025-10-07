@@ -1,13 +1,19 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        Customer customer1 = new Customer();
-        customer1.setMoneyGiven(2000);
-        ShopKeeper shop1 = new ShopKeeper();
-        shop1.setTotalBill(1500);
-        customer1.setMoneyGiven(10000);
-        shop1.setTotalBill(7250);
-        customer1.setMoneyGiven(5000);
-        shop1.setTotalBill(10000);
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Enter Total Bill: ");
+        int bill = input.nextInt();
+        System.out.println("Enter Money Given :");
+        int money = input.nextInt();
+
+        input.close();
+        Customer customer1 = new Customer(money);
+        ShopKeeper shop1 = new ShopKeeper(bill);
+
 
         shop1.giveChange(customer1.getMoneyGiven(), shop1.getTotalBill());
     }
